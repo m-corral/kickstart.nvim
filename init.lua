@@ -753,18 +753,61 @@ require('lazy').setup({
       signature = { enabled = true },
     },
   },
-
+  -- COLORSCHEMES START --
   {
-    'slugbyte/lackluster.nvim',
+    'rose-pine/neovim',
     lazy = false,
     priority = 1000,
     config = function()
-      require('lackluster').setup {
-        vim.cmd.colorscheme 'lackluster',
-        vim.api.nvim_set_hl(0, 'Comment', { fg = '#888888' }),
+      require('rose-pine').setup {
+        disable_italics = true,
+        styles = {
+          bold = false,
+        },
       }
+      -- vim.cmd.colorscheme 'rose-pine'
     end,
   },
+  {
+    'datsfilipe/vesper.nvim',
+    priority = 1000,
+    config = function()
+      require('vesper').setup {
+        overrides = {
+          Number = { bold = false },
+        },
+        italics = {
+          comments = false,
+          keywords = false,
+          functions = false,
+          strings = false,
+          variables = false,
+        },
+      }
+      -- vim.cmd.colorscheme 'vesper'
+    end,
+  },
+  {
+    'p00f/alabaster.nvim',
+    priority = 1000,
+    config = function()
+      vim.cmd.colorscheme 'alabaster'
+    end,
+  },
+  {
+    'catppuccin/nvim',
+    name = 'catppuccin',
+    priority = 1000,
+    config = function() end,
+  },
+  {
+    'folke/tokyonight.nvim',
+    lazy = false,
+    priority = 1000,
+    opts = {},
+  },
+  -- COLORSCHEMES END --
+
   -- Highlight todo, notes, etc in comments
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
 
